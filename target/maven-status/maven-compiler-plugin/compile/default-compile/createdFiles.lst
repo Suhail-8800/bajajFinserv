@@ -1,0 +1,8 @@
+com\example\webhooksqlsolver\config\RestTemplateConfig.class
+com\example\webhooksqlsolver\WebhookSqlSolverApplication.class
+com\example\webhooksqlsolver\model\WebhookResponse.class
+com\example\webhooksqlsolver\model\WebhookRequest.class
+com\example\webhooksqlsolver\component\StartupRunner.class
+com\example\webhooksqlsolver\service\WebhookService.class
+com\example\webhooksqlsolver\service\SqlProblemSolver.class
+com\example\webhooksqlsolver\model\SolutionRequest.class
