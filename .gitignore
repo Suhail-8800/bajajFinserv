@@ -1,2 +1,24 @@
-node_modules
+# Node
+node_modules/
+
+# Env
 .env
+
+# Maven / Java build
+target/
+
+# Compiled files
+*.class
+*.jar
+*.war
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
