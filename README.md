@@ -1,45 +1,139 @@
-# Webhook SQL Problem Solver
+# 🚀 QueryNexus – Automated SQL Challenge Solver
 
-A Spring Boot application that automatically processes webhook-based SQL problem solving on startup.
+QueryNexus is a Spring Boot backend application that automatically processes SQL challenges received via webhook, generates solutions, and submits them using JWT authentication.
 
-## Features
+The project was originally built for a hiring challenge and is now upgraded into a production-style backend project suitable for placement portfolios.
 
-- **Automatic Startup Flow**: Initiates webhook generation immediately when the application starts
-- **Dynamic Problem Assignment**: Determines SQL problem based on registration number (odd/even)
-- **JWT Authentication**: Securely submits solutions using JWT tokens
-- **RestTemplate Integration**: Uses Spring's RestTemplate for HTTP communication
-- **Comprehensive Logging**: Detailed logging throughout the process
 
-## How It Works
+## 📌 Features
 
-1. **Webhook Generation**: On startup, sends POST request to generate webhook with user details
-2. **Problem Determination**: Based on last two digits of registration number:
-   - Odd numbers → Question 1
-   - Even numbers → Question 2
-3. **Solution Submission**: Submits the SQL solution to the webhook URL using JWT authentication
+- Automatic webhook processing
+- SQL challenge detection
+- SQL solution generation
+- JWT-based solution submission
+- Startup execution using CommandLineRunner
+- REST client communication
+- Structured logging
+- Clean service-based architecture
 
-## Configuration
+## 🧱 Tech Stack
 
-The application uses the following default configuration:
-- **Name**: John Doe
-- **Registration Number**: REG12347 (ends in 47 - odd, so Question 1)
-- **Email**: john@example.com
+- Java 17
+- Spring Boot 3.2
+- Maven
+- REST APIs
+- RestTemplate
+- JWT Authentication
+- Jackson JSON Mapper
+- SLF4J Logging
 
-To modify these values, update the `WebhookService.java` file.
+Current version runs stateless without database.
 
-## Running the Application
+---
 
-```bash
-./mvnw spring-boot:run
-```
+## 🏗️ Project Architecture
 
-The application will automatically start the webhook flow upon startup. Check the logs to see the progress and results.
+Application Startup
+↓
+Webhook Generated
+↓
+SQL Problem Identified
+↓
+Solution Generated
+↓
+Solution Submitted via API
 
-## API Endpoints Used
+### Package Structure
+│
+├── WebhookSqlSolverApplication
+├── component
+│ └── StartupRunner
+├── config
+│ └── RestTemplateConfig
+├── service
+│ ├── WebhookService
+│ └── SqlProblemSolver
+└── model
+├── WebhookRequest
+├── WebhookResponse
+└── SolutionRequest
 
-- **Generate Webhook**: `POST https://bfhldevapigw.healthrx.co.in/hiring/generateWebhook/JAVA`
-- **Submit Solution**: `POST https://bfhldevapigw.healthrx.co.in/hiring/testWebhook/JAVA`
+---
 
-## SQL Solutions
+## ▶️ How to Run Locally
 
-The application includes placeholder SQL solutions for both questions. Update the `SqlProblemSolver.java` file with the actual SQL queries based on the problem requirements from the Google Drive links.
+### Prerequisites
+- Java 17+
+- Maven
+
+### Steps
+
+### Clone repository:
+
+git clone repo-url> = (https://github.com/Suhail-8800/QueryNexus.git)
+Move into project:
+
+cd QueryNexus
+
+
+Run application:
+
+mvn spring-boot:run
+Application executes automatically on startup.
+
+### 📡 Application Flow
+
+Application starts
+
+Startup runner triggers webhook call
+
+SQL challenge received
+
+Solution generated
+
+Solution submitted via JWT-authenticated API
+
+### 🔜 Planned Improvements
+
+REST endpoints for manual execution
+
+Database integration for storing challenges
+
+Docker containerization
+
+Unit & integration testing
+
+Deployment-ready configuration
+
+Monitoring & logging upgrades
+
+## API Endpoints
+
+### Run Webhook Flow
+POST /api/webhook/run
+
+Triggers webhook generation, SQL solving, solution submission,
+and stores execution logs.
+
+### Get Execution History
+GET /api/webhook/executions?page=0&size=5
+
+Returns paginated execution logs.
+
+Parameters:
+- page: page number (default 0)
+- size: records per page (default 5)
+
+### 👨‍💻 Author
+
+Suhail Rajput
+Computer Science Student | Backend Developer
+
+GitHub: https://github.com/Suhail-8800
+
+LinkedIn: https://www.linkedin.com/in/suhail-rajput-64158722b/
+
+### ⭐ Purpose
+
+This project demonstrates backend automation, API integration, and service-layer architecture suitable for backend developer roles.
+
